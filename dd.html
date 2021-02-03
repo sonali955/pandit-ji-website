@@ -1,0 +1,123 @@
+
+
+Setting environment for using XAMPP for Windows.
+admin pc@SHIVAMPC c:\xampp
+# mysql -h localhost -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 10
+Server version: 10.4.17-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> create databases primarykey;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that
+corresponds to your MariaDB server version for the right syntax to use near 'dat
+abases primarykey' at line 1
+MariaDB [(none)]> create database primarykey;
+ERROR 1007 (HY000): Can't create database 'primarykey'; database exists
+MariaDB [(none)]> create database primarykey;
+ERROR 1007 (HY000): Can't create database 'primarykey'; database exists
+MariaDB [(none)]> create database pn;
+Query OK, 1 row affected (0.001 sec)
+
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| abc                |
+| information_schema |
+| itm                |
+| kvgm               |
+| kvs                |
+| loan               |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| pn                 |
+| primarykey         |
+| results            |
+| rijt               |
+| student            |
+| students           |
+| test               |
++--------------------+
+16 rows in set (0.001 sec)
+
+MariaDB [(none)]> use primarykey;
+Database changed
+MariaDB [primarykey]> create table abc(id int NOT NULL AUTO_INCREMENT,name varch
+ar(50),class varchar(30),section varchar(10),Primary key(id));
+ERROR 1050 (42S01): Table 'abc' already exists
+MariaDB [primarykey]> create table abc(id int not null auto_increment,name varch
+ar(50),city varchar(50),primarykey(id));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that
+corresponds to your MariaDB server version for the right syntax to use near '(id
+))' at line 1
+MariaDB [primarykey]> create table abc(id int NOT NULL AUTO_INCREMENT,name varch
+ar(50),city varchar(50),PRIMARY KEY(id));
+ERROR 1050 (42S01): Table 'abc' already exists
+MariaDB [primarykey]> create table xyz(id int NOT NULL AUTO_INCREMENT,name varch
+ar(50),city varchar(50),PRIMARY KEY(id));
+Query OK, 0 rows affected (0.515 sec)
+
+MariaDB [primarykey]> desc xyz;
++-------+-------------+------+-----+---------+----------------+
+| Field | Type        | Null | Key | Default | Extra          |
++-------+-------------+------+-----+---------+----------------+
+| id    | int(11)     | NO   | PRI | NULL    | auto_increment |
+| name  | varchar(50) | YES  |     | NULL    |                |
+| city  | varchar(50) | YES  |     | NULL    |                |
++-------+-------------+------+-----+---------+----------------+
+3 rows in set (0.007 sec)
+
+MariaDB [primarykey]> insert into xyz(id,name,city)values(`1',`sonali',`delhi');
+
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that
+corresponds to your MariaDB server version for the right syntax to use near 'son
+ali',`delhi')' at line 1
+MariaDB [primarykey]> insert into xyz(id,name,city)values('1','sonali','delhi');
+
+Query OK, 1 row affected (0.238 sec)
+
+MariaDB [primarykey]> select * from xyz;
++----+--------+-------+
+| id | name   | city  |
++----+--------+-------+
+|  1 | sonali | delhi |
++----+--------+-------+
+1 row in set (0.043 sec)
+
+MariaDB [primarykey]> insert into xyz(name,city)values('pihu','delhi');
+Query OK, 1 row affected (0.087 sec)
+
+MariaDB [primarykey]> insert into xyz(name,city)values('chinu','delhi');
+Query OK, 1 row affected (0.065 sec)
+
+MariaDB [primarykey]> insert into xyz(name,city)values('vikas batham','gwalior')
+;
+Query OK, 1 row affected (0.112 sec)
+
+MariaDB [primarykey]> insert into xyz(name,city)values('neelu','gwalior');
+Query OK, 1 row affected (0.072 sec)
+
+MariaDB [primarykey]> insert into xyz(name,city)values('arun','gwalior');
+Query OK, 1 row affected (0.053 sec)
+
+MariaDB [primarykey]> select * from xyz;
++----+--------------+---------+
+| id | name         | city    |
++----+--------------+---------+
+|  1 | sonali       | delhi   |
+|  2 | pihu         | delhi   |
+|  3 | chinu        | delhi   |
+|  4 | vikas batham | gwalior |
+|  5 | neelu        | gwalior |
+|  6 | arun         | gwalior |
++----+--------------+---------+
+6 rows in set (0.000 sec)
+
+MariaDB [primarykey]>
+

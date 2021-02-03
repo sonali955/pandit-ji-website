@@ -1,0 +1,106 @@
+
+Setting environment for using XAMPP for Windows.
+admin pc@SHIVAMPC c:\xampp
+# mysql -h localhost -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 9
+Server version: 10.4.17-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> create database results;
+ERROR 1007 (HY000): Can't create database 'results'; database exists
+MariaDB [(none)]> create database students;
+ERROR 1007 (HY000): Can't create database 'students'; database exists
+MariaDB [(none)]> create database abc;
+Query OK, 1 row affected (0.001 sec)
+
+MariaDB [(none)]> show database;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that
+corresponds to your MariaDB server version for the right syntax to use near 'dat
+abase' at line 1
+MariaDB [(none)]> show database;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that
+corresponds to your MariaDB server version for the right syntax to use near 'dat
+abase' at line 1
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| abc                |
+| information_schema |
+| itm                |
+| loan               |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| results            |
+| students           |
+| test               |
++--------------------+
+10 rows in set (0.001 sec)
+
+MariaDB [(none)]> use abc;
+Database changed
+MariaDB [abc]> create table abc(name vachar(50),roll varchar(50),address varchar
+(100);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that
+corresponds to your MariaDB server version for the right syntax to use near '(50
+),roll varchar(50),address varchar(100)' at line 1
+MariaDB [abc]> create table abc(name varchar(50), roll varchar(50),address varch
+ar(100));
+Query OK, 0 rows affected (0.391 sec)
+
+MariaDB [abc]> desc abc;
++---------+--------------+------+-----+---------+-------+
+| Field   | Type         | Null | Key | Default | Extra |
++---------+--------------+------+-----+---------+-------+
+| name    | varchar(50)  | YES  |     | NULL    |       |
+| roll    | varchar(50)  | YES  |     | NULL    |       |
+| address | varchar(100) | YES  |     | NULL    |       |
++---------+--------------+------+-----+---------+-------+
+3 rows in set (0.028 sec)
+
+MariaDB [abc]> create table class 2(name varchar(50), roll varchar(50),address v
+archar(100));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that
+corresponds to your MariaDB server version for the right syntax to use near '2(n
+ame varchar(50), roll varchar(50),address varchar(100))' at line 1
+MariaDB [abc]> create table mba(name varchar(50), roll varchar(50), address varc
+har(100));
+Query OK, 0 rows affected (0.355 sec)
+
+MariaDB [abc]> desc mba;
++---------+--------------+------+-----+---------+-------+
+| Field   | Type         | Null | Key | Default | Extra |
++---------+--------------+------+-----+---------+-------+
+| name    | varchar(50)  | YES  |     | NULL    |       |
+| roll    | varchar(50)  | YES  |     | NULL    |       |
+| address | varchar(100) | YES  |     | NULL    |       |
++---------+--------------+------+-----+---------+-------+
+3 rows in set (0.004 sec)
+
+MariaDB [abc]> create table b.tech(name varchar(50),roll varchar(50), address va
+rchar(100));
+ERROR 1049 (42000): Unknown database 'b'
+MariaDB [abc]> create table class(name varchar(50), roll varchar(50), address va
+rchar(100));
+Query OK, 0 rows affected (0.416 sec)
+
+MariaDB [abc]> desc class;
++---------+--------------+------+-----+---------+-------+
+| Field   | Type         | Null | Key | Default | Extra |
++---------+--------------+------+-----+---------+-------+
+| name    | varchar(50)  | YES  |     | NULL    |       |
+| roll    | varchar(50)  | YES  |     | NULL    |       |
+| address | varchar(100) | YES  |     | NULL    |       |
++---------+--------------+------+-----+---------+-------+
+3 rows in set (0.004 sec)
+
+MariaDB [abc]> Bye
+
+admin pc@SHIVAMPC c:\xampp
+#
